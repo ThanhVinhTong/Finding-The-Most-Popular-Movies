@@ -6,6 +6,7 @@ object Main {
     val top = 10
     val joinColumn = "movieId"
     val sortColumn = "rating"
+    val criteriaColumn = "rating"
 
     //  Define data file names
     val ratingFile = "./src/main/data/ml-latest-small/ratings.csv"
@@ -34,7 +35,7 @@ object Main {
     tag.showTop(top)
 
     // Start querying
-    val query = new Query(rating.getData, movie.getData, tag.getData, joinColumn, sortColumn)
+    val query = new Query(rating.getData, movie.getData, tag.getData, joinColumn, sortColumn, criteriaColumn)
     query.getResult.show()
 
     spark.stop()
